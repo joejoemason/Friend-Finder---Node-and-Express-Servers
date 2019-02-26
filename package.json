@@ -1,8 +1,8 @@
 {
   "name": "Friend-Finder---Node-and-Express-Servers",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An Node.js and Express based friend matching application",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/joejoemason/Friend-Finder---Node-and-Express-Servers.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "friend-finder"
+  ],
+  "author": "Joseph A. Mason",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/joejoemason/Friend-Finder---Node-and-Express-Servers/issues"
@@ -19,7 +21,6 @@
   "homepage": "https://github.com/joejoemason/Friend-Finder---Node-and-Express-Servers#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "engines": "^0.4.0",
     "express": "^4.16.4",
     "path": "^0.12.7"
   }
