@@ -5,18 +5,19 @@
     <title>Friend Finder App</title>
 
     <!-- Link to the jQuery Library -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <!-- Including Font Awesome Icons -->
     <script src="https://use.fontawesome.com/b38c8ed4c7.js"></script>
 
     <!-- Link to reset stylesheet -->
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- Compiled and minified Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
@@ -24,7 +25,7 @@
     <!-- Compiled and minified Materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -35,7 +36,8 @@
                 <a href="/" class="brand-logo" id="logo">Friend Finder</a>
                 <ul class="right hide-on-med-and-down" id="head-nav-links">
                     <li><a href="/survey">Survey</a></li>
-                    <li><a href="https://joejoemason.github.io/Friend-Finder---Node-and-Express-Servers/">GitHub Repo</a></li>
+                    <li><a href="https://joejoemason.github.io/Friend-Finder---Node-and-Express-Servers/">GitHub
+                            Repo</a></li>
                     <li><a href="/api/friends">API Friends List</a></li>
                 </ul>
             </div>
@@ -197,7 +199,8 @@
 
                         <!-- Survey Submit Button -->
                         <div>
-                            <button class="btn waves-effect waves-light" type="submit" name="action" id="submitButton">Submit
+                            <button class="btn waves-effect waves-light" type="submit" name="action"
+                                id="submitButton">Submit
                                 Details
                                 <i class="material-icons right">send</i>
                             </button>
@@ -244,7 +247,6 @@
             <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
         </div>
     </div>
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('select').material_select();
@@ -279,7 +281,7 @@
             };
             // console.log('userInput = ' + JSON.stringify(userInput));
             // Add user inputs to friends list
-            $.post('/app/data/friends.js', userInput)
+            $.post('/api/friends', userInput)
                 .done(function (data) {
                     // console.log('response = ' + JSON.stringify(data));
                     // Set the name and image values of friend match
@@ -289,6 +291,9 @@
                     $('#modal1').modal('open');
                 });
         });
+    </script>
+
+
     </script>
 </body>
 
