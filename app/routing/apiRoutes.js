@@ -7,14 +7,11 @@ var friends = require('../data/friends');
 
 // Export API routes
 module.exports = function (app) {
-    // console.log('___ENTER apiRoutes.js___');
-
-    // Total list of friend entries
+   
     app.get('/api/friends', function (req, res) {
         res.json(friends);
     });
 
-    // Add new friend entry
     app.post('/api/friends', function (req, res) {
         // Capture the user input object
         var userInput = req.body;
@@ -23,7 +20,6 @@ module.exports = function (app) {
         var userResponses = userInput.scores;
         // console.log('userResponses = ' + userResponses);
 
-        // Compute best friend match
         var matchName = '';
         var matchImage = '';
         var totalDifference = 10000; // Make the initial value big for comparison
@@ -39,11 +35,8 @@ module.exports = function (app) {
             }
             // console.log('diff = ' + diff);
 
-            // If lowest difference, record the friend match
             if (diff < totalDifference) {
-                // console.log('Closest match found = ' + diff);
-                // console.log('Friend name = ' + friends[i].name);
-                // console.log('Friend image = ' + friends[i].photo);
+  
 
                 totalDifference = diff;
                 matchName = friends[i].name;
@@ -54,7 +47,6 @@ module.exports = function (app) {
         // Add new user
         friends.push(userInput);
 
-        // Send appropriate response
         res.json({
             status: 'OK',
             matchName: matchName,

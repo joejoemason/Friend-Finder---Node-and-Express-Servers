@@ -3,28 +3,15 @@
 
 <head>
     <title>Friend Finder App</title>
-
-    <!-- Link to the jQuery Library -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-    <!-- Including Font Awesome Icons -->
     <script src="https://use.fontawesome.com/b38c8ed4c7.js"></script>
-
-    <!-- Link to reset stylesheet -->
     <link rel="stylesheet" href="./css/reset.css">
-
-    <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-    <!-- Compiled and minified Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-
-    <!-- Compiled and minified Materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -66,7 +53,6 @@
                             <input type="text" class="validate" placeholder="Photo Link Here" id="userPhoto">
                         </div>
 
-                        <!-- Survey Details -->
                         <div class="input-field col s12">
                             <h3>Detail 1</h3>
                             <h5>Your ideas of what fun is are outgoing</h5>
@@ -197,7 +183,6 @@
                             </select>
                         </div>
 
-                        <!-- Survey Submit Button -->
                         <div>
                             <button class="btn waves-effect waves-light" type="submit" name="action"
                                 id="submitButton">Submit
@@ -235,7 +220,6 @@
         </div>
     </footer>
 
-    <!-- Modal Dialog Displaying Closest Friend Match -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4>Closest Friend Match</h4>
@@ -251,18 +235,16 @@
         $(document).ready(function () {
             $('select').material_select();
             $('.modal').modal({
-                dismissible: false, // Modal can be dismissed by clicking outside of the modal
-                opacity: .5, // Opacity of modal background
-                inDuration: 300, // Transition in duration
-                outDuration: 200, // Transition out duration
-                startingTop: '4%', // Starting top style attribute
-                endingTop: '10%' // Ending top style attribute
+                dismissible: false, 
+                opacity: .5, 
+                inDuration: 300, 
+                outDuration: 200, 
+                startingTop: '4%', 
+                endingTop: '10%' 
             });
         });
-        // Activate submit button
         $('#submitButton').on('click', function (event) {
             event.preventDefault();
-            // Gather user inputs
             var userInput = {
                 name: $('#userName').val().trim(),
                 photo: $('#userPhoto').val().trim(),
@@ -279,15 +261,12 @@
                     $('#question10').val().trim()
                 ]
             };
-            // console.log('userInput = ' + JSON.stringify(userInput));
-            // Add user inputs to friends list
+  
             $.post('/api/friends', userInput)
                 .done(function (data) {
-                    // console.log('response = ' + JSON.stringify(data));
-                    // Set the name and image values of friend match
+                   
                     $('#userMatch').html(data.matchName);
                     $("#userMatchImage").attr("src", data.matchImage);
-                    // Pop open the modal dialog
                     $('#modal1').modal('open');
                 });
         });
